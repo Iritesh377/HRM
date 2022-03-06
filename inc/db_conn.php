@@ -1,10 +1,10 @@
 <?php
 
-$sname= "localhost";
-$unmae= "root";
-$password = "";
+$sname= "63.250.41.150";
+$unmae= "techybug_HRM";
+$password = "R$jKpqewNf$+";
 
-$db_name = "test_db";
+$db_name = "techybug_HRM";
 
 $conn = mysqli_connect($sname, $unmae, $password, $db_name);
 
