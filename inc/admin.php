@@ -14,7 +14,7 @@
 
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">Offcanvas navbar</a>
+    <a class="navbar-brand" href="#">Institute Management System</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
