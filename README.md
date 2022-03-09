@@ -21,7 +21,7 @@
 
 ✅ Login Page\
 ✅ Registration Page\
-⭕ Dashboard 
+⭕ Dashboard\
 ⬛ Employees Page
 
 
