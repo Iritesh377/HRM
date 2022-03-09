@@ -1,6 +1,14 @@
-# HRMS 
+<div align="center">
+<img src="img/logo.png" height="100" width="100"/><br>
+<p>It is a suite of software applications used to manage human resources and related processes.
+</p>
+</div>
 
-It is a suite of software applications used to manage human resources and related processes.
+
+<div align="center">
+<h1>HRM</h1>
+</div>
+
 ## Using
 
 ```bash
@@ -11,9 +19,10 @@ It is a suite of software applications used to manage human resources and relate
 
 ## Road Map 
 
-⬛ Login Page\
-⬛ Registration Page\
-⬛ Dashboard 
+✅ Login Page\
+✅ Registration Page\
+⭕ Dashboard 
+⬛ Employees Page
 
 
 
