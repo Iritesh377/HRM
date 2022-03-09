@@ -1,5 +1,6 @@
 <?php 
-include "db_conn.php";
+include "../inc/db_conn.php";
+
 
 if(empty($_SESSION['id'])){
   header("Location: ../index.php");
@@ -81,10 +82,10 @@ $sql = "SELECT * FROM users WHERE id='$id'";
             </div>
 
             <div class="user-wrapper">
-                <img src="img/2.jpg" width="40px" height="40px" alt="">
+                <!-- <img src="img/2.jpg" width="40px" height="40px" alt=""> -->
                 <div>
-                    <h4>iritesh37</h4>
-                    <small>Super admin</small>
+                    <h4><?php echo $_SESSION['name']; ?> </h4>
+                    <small><a href="../inc/logout.php" class="text-danger btn">Logout</a></small>
                 </div>
             </div>
         </header>
