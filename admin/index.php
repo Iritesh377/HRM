@@ -20,7 +20,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<link rel="icon" type="image/x-icon" href="../img/logo.png">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -36,7 +36,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <h2><span class="lab la-accusoft"></span> <span></span></h2>
+            <h2><span class="la la-atom"></span> <span></span></h2>
         </div>
 
         <div class="sidebar-menu">
@@ -48,7 +48,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                     <a href=""><span class="las la-users"></span> <span>Employees</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-users-cog"></span> <span>Admin</span></a>
+                    <a href=""><span class="las la-users-cog"></span> <span>Admins</span></a>
                 </li>
                 <li>
                     <a href=""><span class="las la-building"></span> <span>Department</span></a>
@@ -138,10 +138,10 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                 <div class="card-single">
                     <div>
                         <h1>$6k</h1>
-                        <span>Income</span>
+                        <span>Expences</span>
                     </div>
                     <div>
-                        <span class="lab la-google-wallet"></span>
+                        <span class="la la-rupee-sign"></span>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/x-icon" href="/img/logo.png">
 	<title>LOGIN</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>

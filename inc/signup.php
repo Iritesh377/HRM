@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/x-icon" href="../img/logo.png">
+
 	<title>SIGN UP</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
