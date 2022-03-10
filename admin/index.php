@@ -24,7 +24,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Accusoft admin</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -42,25 +42,37 @@ $sql = "SELECT * FROM users WHERE id='$id'";
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="" class="active"><span class="las la-igloo"></span> <span>Dashboard</span></a>
+                    <a href="" class="active"><span class="las la-globe"></span> <span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-users"></span> <span>Customers</span></a>
+                    <a href=""><span class="las la-users"></span> <span>Employees</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-clipboard-list"></span> <span>Projects</span></a>
+                    <a href=""><span class="las la-users-cog"></span> <span>Admin</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-shopping-bag"></span> <span>Orders</span></a>
+                    <a href=""><span class="las la-building"></span> <span>Department</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-receipt"></span> <span>Inventory</span></a>
+                    <a href=""><span class="las la-award"></span> <span>Award</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-user-circle"></span> <span>Accounts</span></a>
+                    <a href=""><span class="las la-rupee-sign"></span> <span>Expences</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-clipboard-list"></span> <span>Tasks</span></a>
+                    <a href=""><span class="las la-calendar-day"></span> <span>Holidays</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-fingerprint"></span> <span>Attendance</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-mail-bulk"></span> <span>Leave Applications</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-bullhorn"></span> <span>Notice Board</span></a>
+                </li>
+                <li>
+                    <a href=""><span class="las la-tools"></span> <span>Settings</span></a>
                 </li>
             </ul>
         </div>
