@@ -33,6 +33,8 @@ $sql = "SELECT * FROM users WHERE id='$id'";
 
 <body>
 
+
+
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
@@ -108,7 +110,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                 <div class="card-single">
                     <div>
                         <h1>54</h1>
-                        <span>Customers</span>
+                        <span>Total Employees</span>
                     </div>
                     <div>
                         <span class="las la-users"></span>
@@ -118,39 +120,40 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                 <div class="card-single">
                     <div>
                         <h1>79</h1>
-                        <span>Projects</span>
+                        <span>Department</span>
                     </div>
                     <div>
-                        <span class="las la-clipboard-list"></span>
+                        <span class="las la-building"></span>
                     </div>
-                </div>
+                </div> 
 
                 <div class="card-single">
                     <div>
                         <h1>124</h1>
-                        <span>Orders</span>
+                        <span>Active Employees</span>
                     </div>
                     <div>
-                        <span class="las la-shopping-bag"></span>
+                        <span class="las la-user-tie"></span>
                     </div>
                 </div>
-
+            <button onclick="popuptoggel()">
                 <div class="card-single">
                     <div>
-                        <h1>$6k</h1>
-                        <span>Expences</span>
+                        <h1>Add</h1>
+                        <span>Employees</span>
                     </div>
                     <div>
-                        <span class="la la-rupee-sign"></span>
+                        <span class="la la-user-plus"></span>
                     </div>
                 </div>
+            </button>
             </div>
 
-            <div class="recent-grid">
+            <div class="grid" style="padding-top:50px;">
                 <div class="projects">
                     <div class="box">
                         <div class="box-header">
-                            <h3>Recent Projects</h3>
+                            <h3>Employees List</h3>
 
                             <button>See all <span class="las la-arrow-right"></span></button>
                         </div>
@@ -160,9 +163,13 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                                 <table width="100%">
                                     <thead>
                                         <tr>
-                                            <td>Project Title</td>
-                                            <td>Department</td>
+                                            <td>Name</td>
+                                            <td>Image</td>
+                                            <td>Department/Designation</td>
+                                            <td>Contact</td>
                                             <td>Status</td>
+                                            <td>Action</td>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -245,113 +252,20 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                     </div>
                 </div>
 
-                <div class="customers">
-                    <div class="box">
-                        <div class="box-header">
-                            <h3>New customer</h3>
-
-                            <button>See all <span class="las la-arrow-right"></span></button>
-                        </div>
-
-                        <div class="box-body">
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Lewis S. Cunningham</h4>
-                                        <small>CEO Excerpt</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+           
             </div>
 
         </main>
     </div>
-
+    <div class="popup" id="popup-1">
+<div class="overlay"></div>
+<div class="content">
+    <div class="btn" class="las la-times" onclick="popuptoggel()">&times;</div>
+    <h1>Hello Testing</h1>
+    <p>Just a siimple tesing Paragraph</p>
+</div>
+</div>
+<script src="../js/script.js"></script>
 </body>
 
 </html>

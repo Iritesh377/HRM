@@ -108,7 +108,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                 <div class="card-single">
                     <div>
                         <h1>54</h1>
-                        <span>Customers</span>
+                        <span>Employees</span>
                     </div>
                     <div>
                         <span class="las la-users"></span>
