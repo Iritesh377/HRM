@@ -42,10 +42,10 @@ $sql = "SELECT * FROM users WHERE id='$id'";
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="index.php" class="active"><span class="las la-globe"></span> <span>Dashboard</span></a>
+                    <a href="index.php"><span class="las la-globe"></span> <span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="employees.php"><span class="las la-users"></span> <span>Employees</span></a>
+                    <a href="employees.php" class="active"><span class="las la-users"></span> <span>Employees</span></a>
                 </li>
                 <li>
                     <a href=""><span class="las la-users-cog"></span> <span>Admins</span></a>

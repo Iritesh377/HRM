@@ -7,7 +7,7 @@ body {
 	flex-direction: column;
 }
 
-*{
+* {
 	font-family: sans-serif;
 	box-sizing: border-box;
 }
@@ -33,6 +33,7 @@ input {
 	margin: 10px auto;
 	border-radius: 5px;
 }
+
 label {
 	color: #888;
 	font-size: 18px;
@@ -48,16 +49,18 @@ button {
 	margin-right: 10px;
 	border: none;
 }
-button:hover{
+
+button:hover {
 	opacity: .7;
 }
+
 .error {
-   background: #F2DEDE;
-   color: #A94442;
-   padding: 10px;
-   width: 95%;
-   border-radius: 5px;
-   margin: 20px auto;
+	background: #F2DEDE;
+	color: #A94442;
+	padding: 10px;
+	width: 95%;
+	border-radius: 5px;
+	margin: 20px auto;
 }
 
 h1 {
@@ -75,6 +78,7 @@ a {
 	border: none;
 	text-decoration: none;
 }
-a:hover{
+
+a:hover {
 	opacity: .7;
 }
