@@ -21,6 +21,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
 <!DOCTYPE html>
 <html lang="en">
 <link rel="icon" type="image/x-icon" href="../img/logo.png">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -88,7 +89,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                 </label>
 
                 <h2>Dashboard</h2>
-              </div>
+            </div>
 
             <div class="search-wrapper">
                 <span class="las la-search"></span>
@@ -125,7 +126,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                     <div>
                         <span class="las la-building"></span>
                     </div>
-                </div> 
+                </div>
 
                 <div class="card-single">
                     <div>
@@ -136,17 +137,17 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                         <span class="las la-user-tie"></span>
                     </div>
                 </div>
-            <button onclick="popuptoggel()">
-                <div class="card-single">
-                    <div>
-                        <h1>Add</h1>
-                        <span>Employees</span>
+                <button id="button">
+                    <div class="card-single">
+                        <div>
+                            <h1>Add</h1>
+                            <span>Employees</span>
+                        </div>
+                        <div>
+                            <span class="la la-user-plus"></span>
+                        </div>
                     </div>
-                    <div>
-                        <span class="la la-user-plus"></span>
-                    </div>
-                </div>
-            </button>
+                </button>
             </div>
 
             <div class="grid" style="padding-top:50px;">
@@ -252,20 +253,25 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                     </div>
                 </div>
 
-           
+
             </div>
 
         </main>
     </div>
-    <div class="popup" id="popup-1">
-<div class="overlay"></div>
-<div class="content">
-    <div class="btn" class="las la-times" onclick="popuptoggel()">&times;</div>
-    <h1>Hello Testing</h1>
-    <p>Just a siimple tesing Paragraph</p>
+    <div id="maincontent">
+    <h1>Page Content<h2>
+ 
 </div>
+<div id="overlay"></div>
+<div id="popup">
+    <div class="popupcontrols">
+        <span id="popupclose">X</span>
+    </div>
+    <div class="popupcontent">
+        <h1>Add Employees</h1>
+    </div>
 </div>
-<script src="../js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>
