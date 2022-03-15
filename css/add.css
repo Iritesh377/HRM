@@ -1,0 +1,41 @@
+form {
+	padding: 30px;
+	background: #fff;
+	border-radius: 15px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+input {
+	display: block;
+	border: 2px solid #ccc;
+	width: 80%;
+	padding: 10px;
+	margin: 10px auto;
+	border-radius: 5px;
+}
+
+
+.addbutton {
+	float: right;
+	background: #1d4ed8;
+	padding: 10px 15px;
+	color: #fff;
+	border-radius: 5px;
+	margin-right: 10px;
+	border: none;
+}
+
+.addbutton:hover {
+	opacity: .7;
+}
+
+.error {
+	background: #F2DEDE;
+	color: #A94442;
+	padding: 10px;
+	border-radius: 5px;
+	margin: 10px auto;
+}
+

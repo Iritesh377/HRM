@@ -26,6 +26,8 @@ $sql = "SELECT * FROM users WHERE id='$id'";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="../css/add.css">
+
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -265,10 +267,34 @@ $sql = "SELECT * FROM users WHERE id='$id'";
 <div id="overlay"></div>
 <div id="popup">
     <div class="popupcontrols">
-        <span id="popupclose">X</span>
+        <span id="popupclose"><i class="las la-times"></i></span>
     </div>
     <div class="popupcontent">
-        <h1>Add Employees</h1>
+       
+<body>
+     <form class="addemployees" action="../inc/addemployees.php" method="post">
+     <h1>Add Employees</h1>
+     	<?php if (isset($_GET['error'])) { ?>
+     		<p class="error"><?php echo $_GET['error']; ?></p>
+     	<?php } ?>
+     	<label>Full Name</label>
+     	<input type="text" name="fname" placeholder="Sam Kumar"><br>
+
+     	<label>Image</label>
+     	<input type="file" name="pic" placeholder=".png .jpg"><br>
+
+         <label>Department/Designation</label>
+     	<input type="text" name="department" placeholder="Eg: Disciplinary Incharge"><br>
+
+         <label>Contact</label>
+     	<input type="tel" name="tel" placeholder="+977-9845000000"><br>
+
+
+     	<button class="addbutton" type="submit">Add</button>
+
+     </form>
+	</body>
+</html>
     </div>
 </div>
     <script src="../js/script.js"></script>

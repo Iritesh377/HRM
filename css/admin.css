@@ -499,8 +499,10 @@ tr td:last-child {
     position: absolute;
     top: 0;
     bottom: 0;
-    background: #999;
+    background: rgba(0, 0, 0, 0.829);
     width: 100%;
+    align-items: center;
+    text-align: center;
     height: 100%;
     opacity: 0.8;
     z-index: 100;
@@ -509,16 +511,33 @@ tr td:last-child {
 #popup {
     display: none;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     background: #fff;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 650px;
     margin-left: -250px; /*Half the value of width to center div*/
     margin-top: -250px; /*Half the value of height to center div*/
     z-index: 200;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
 
 }
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
 
 #popupclose {
     float: right;
@@ -535,3 +554,5 @@ tr td:last-child {
 #button {
     cursor: pointer;
 }
+
+
