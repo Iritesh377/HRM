@@ -1,7 +1,36 @@
 <?php 
 include "../inc/db_conn.php";
 
+if(isset($_POST['submit'])){
+    $fname=$_POST['fname'];
+    $pic=$_POST['pic'];
+    $department=$_POST['department'];
+    $tel=$_POST['tel'];
 
+    if (empty($fname)) {
+		header("Location: employees.php?error=Full Name is required");
+	    exit();
+	}else if(empty($pic)){
+        header("Location: employees.php?error=Picture is required");
+	    exit();
+    }else if(empty($department)){
+        header("Location: employees.php?error=Department is required");
+	    exit();
+    }else if(empty($tel)){
+        header("Location: employees.php?error=Telephone Number is required");
+	    exit();
+    }else{
+    $sql="insert into `employees` (fname,pic,department,tel)
+    values('$fname','$pic','$department','$tel')";
+    $result=mysqli_query($conn,$sql);
+    if($result){
+        echo "Data inserted sucessfully";
+    }
+    else{
+        die(mysqli_error($conn));
+    }
+}
+}
 if(empty($_SESSION['id'])){
   header("Location: ../index.php");
   die;
@@ -166,88 +195,45 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                                 <table width="100%">
                                     <thead>
                                         <tr>
+                                            <td>ID</td>
                                             <td>Name</td>
                                             <td>Image</td>
                                             <td>Department/Designation</td>
                                             <td>Contact</td>
-                                            <td>Status</td>
                                             <td>Action</td>
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>UI/UX Design</td>
-                                            <td>UI Team</td>
+
+
+                                    <?php
+                                    
+                                    $sql="Select * from `employees`";
+                                    $result= mysqli_query($conn,$sql);
+                                    if($result){
+                
+                                        while($row=mysqli_fetch_assoc($result)){
+                                            $id=$row['id'];
+                                            $fname=$row['fname'];
+                                            $pic=$row['pic'];
+                                            $department=$row['department'];
+                                            $tel=$row['tel'];
+                                            echo '<tr>
+                                            <td>'.$id.'</td>
+                                            <td>'.$fname.'</td>
+                                            <td>'.$pic.'</td>
+                                            <td>'.$department.'</td>
+                                            <td>'.$tel.'</td>
                                             <td>
-                                                <span class="status purple"></span>
-                                                review
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Web development</td>
-                                            <td>Frontend</td>
-                                            <td>
-                                                <span class="status pink"></span>
-                                                in progress
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ushop app</td>
-                                            <td>Mobile Team</td>
-                                            <td>
-                                                <span class="status orange"></span>
-                                                pending
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>UI/UX Design</td>
-                                            <td>UI Team</td>
-                                            <td>
-                                                <span class="status purple"></span>
-                                                review
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Web development</td>
-                                            <td>Frontend</td>
-                                            <td>
-                                                <span class="status pink"></span>
-                                                in progress
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ushop app</td>
-                                            <td>Mobile Team</td>
-                                            <td>
-                                                <span class="status orange"></span>
-                                                pending
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>UI/UX Design</td>
-                                            <td>UI Team</td>
-                                            <td>
-                                                <span class="status purple"></span>
-                                                review
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Web development</td>
-                                            <td>Frontend</td>
-                                            <td>
-                                                <span class="status pink"></span>
-                                                in progress
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ushop app</td>
-                                            <td>Mobile Team</td>
-                                            <td>
-                                                <span class="status orange"></span>
-                                                pending
-                                            </td>
-                                        </tr>
+                                        <button class="btn btn-primary m-2"><a href="../inc/update.php?updateid='.$id.'" class="text-light">Update</a></button>
+                                        <button class="btn btn-danger"><a href="../inc/delete.php?deleteid='.$id.'"  class="text-light">Delete</a></button> 
+                                        </td>
+                                        </tr>';
+                                        }
+                                    }
+                                    ?>
+                                                                      
                                     </tbody>
                                 </table>
                             </div>
@@ -272,25 +258,25 @@ $sql = "SELECT * FROM users WHERE id='$id'";
     <div class="popupcontent">
        
 <body>
-     <form class="addemployees" action="../inc/addemployees.php" method="post">
+     <form class="addemployees" method="post">
      <h1>Add Employees</h1>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
      	<label>Full Name</label>
-     	<input type="text" name="fname" placeholder="Sam Kumar"><br>
+     	<input type="text" name="fname" autocomplete="on" placeholder="Sam Kumar"><br>
 
      	<label>Image</label>
-     	<input type="file" name="pic" placeholder=".png .jpg"><br>
+     	<input type="file" name="pic" autocomplete="on" placeholder=".png .jpg"><br>
 
          <label>Department/Designation</label>
-     	<input type="text" name="department" placeholder="Eg: Disciplinary Incharge"><br>
+     	<input type="text" name="department" autocomplete="on" placeholder="Eg: Disciplinary Incharge"><br>
 
          <label>Contact</label>
-     	<input type="tel" name="tel" placeholder="+977-9845000000"><br>
+     	<input type="tel" name="tel" autocomplete="on" placeholder="+977-9845000000"><br>
 
 
-     	<button class="addbutton" type="submit">Add</button>
+     	<button class="addbutton" name="submit" type="submit">Add</button>
 
      </form>
 	</body>
