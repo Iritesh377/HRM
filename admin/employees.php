@@ -228,7 +228,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                                             <td>
                                         <button class="btn btn-primary m-2"><a href="../inc/update.php?updateid='.$id.'" class="text-light">Update</a></button>
                                         <button class="btn btn-danger"><a href="../inc/delete.php?deleteid='.$id.'"  class="text-light">Delete</a></button> 
-                                        </td>
+                                        </td>   
                                         </tr>';
                                         }
                                     }
@@ -247,7 +247,6 @@ $sql = "SELECT * FROM users WHERE id='$id'";
         </main>
     </div>
     <div id="maincontent">
-    <h1>Page Content<h2>
  
 </div>
 <div id="overlay"></div>
