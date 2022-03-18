@@ -141,8 +141,17 @@ $sql = "SELECT * FROM users WHERE id='$id'";
             <div class="cards">
                 <div class="card-single">
                     <div>
-                        <h1>54</h1>
+                    <?php
+
+$sql="SELECT id FROM employees ORDER BY id";
+$result= mysqli_query($conn,$sql);
+$totalemp =mysqli_num_rows($result);
+
+
+                       echo '<h1>'.$totalemp.'</h1>';        
+                       ?>             
                         <span>Total Employees</span>
+                        
                     </div>
                     <div>
                         <span class="las la-users"></span>
@@ -151,7 +160,14 @@ $sql = "SELECT * FROM users WHERE id='$id'";
 
                 <div class="card-single">
                     <div>
-                        <h1>79</h1>
+                    <?php
+
+$sql="SELECT COUNT( DISTINCT department) FROM employees ORDER BY id";
+$result= mysqli_query($conn,$sql);
+$totaldep =mysqli_num_rows($result);
+
+echo '<h1>'.$totaldep.'</h1>';        
+?>     
                         <span>Department</span>
                     </div>
                     <div>
