@@ -210,6 +210,9 @@ main {
     padding: 2rem;
     border-radius: 2px;
 }
+.card-single h1{
+    text-decoration: none;
+}
 
 .card-single div:last-child span {
     font-size: 3rem;

@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <link rel="icon" type="image/x-icon" href="../img/logo.png">

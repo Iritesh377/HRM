@@ -102,6 +102,7 @@ echo '<h1>'.$totaldep.'</h1>';
                     </div>
                 </div>
                 <button id="button">
+                <a href="addemployees.php">
                     <div class="card-single">
                         <div>
                             <h1>Add</h1>
@@ -110,7 +111,7 @@ echo '<h1>'.$totaldep.'</h1>';
                         <div>
                             <span class="la la-user-plus"></span>
                         </div>
-                    </div>
+                    </div></a>
                 </button>
             </div>
 
@@ -159,7 +160,7 @@ echo '<h1>'.$totaldep.'</h1>';
                                             <td>'.$department.'</td>
                                             <td>'.$tel.'</td>
                                             <td>
-                                        <button class="btn btn-primary m-2"><a href="../inc/update.php?updateid='.$id.'" class="text-light">Update</a></button>
+                                        <button class="btn btn-primary m-2"><a href="../admin/update.php?updateid='.$id.'" class="text-light">Update</a></button>
                                         <button class="btn btn-danger"><a href="../inc/delete.php?deleteid='.$id.'"  class="text-light">Delete</a></button> 
                                         </td>   
                                         </tr>';
@@ -182,7 +183,7 @@ echo '<h1>'.$totaldep.'</h1>';
     <div id="maincontent">
  
 </div>
-<div id="overlay"></div>
+<!-- <div id="overlay"></div>
 <div id="popup">
     <div class="popupcontrols">
         <span id="popupclose"><i class="las la-times"></i></span>
@@ -211,7 +212,7 @@ echo '<h1>'.$totaldep.'</h1>';
      	<button class="addbutton" name="submit" type="submit">Add</button>
 
      </form>
-	</body>
+	</body> -->
 </html>
     </div>
 </div>

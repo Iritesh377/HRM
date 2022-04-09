@@ -1,6 +1,6 @@
 <?php
 $title="Update Records";
-include "db_conn.php";
+include "../inc/db_conn.php";
 include_once("../inc/header.php");
 $id=$_GET['updateid'];
 
@@ -47,23 +47,23 @@ $sql = "SELECT * FROM users WHERE id='$id'";
     }
 ?>
 <body>
-    <div class="center-form">
-<form class="row g-3 top-50 start-50">
-  <div class="col-md-4">
+<div class="body-box" style="padding-top:150px; padding-left:20px; padding-right:20px;" >
+<form class="row g-3">
+  <div class="col-md-2">
     <label for="validationServer01" class="form-label">First name</label>
     <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-2">
     <label for="validationServer02" class="form-label">Last name</label>
     <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-2">
     <label for="validationServerUsername" class="form-label">Username</label>
     <div class="input-group has-validation">
       <span class="input-group-text" id="inputGroupPrepend3">@</span>
@@ -73,14 +73,14 @@ $sql = "SELECT * FROM users WHERE id='$id'";
       </div>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-2">
     <label for="validationServer03" class="form-label">City</label>
     <input type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required>
     <div id="validationServer03Feedback" class="invalid-feedback">
       Please provide a valid city.
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <label for="validationServer04" class="form-label">State</label>
     <select class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
       <option selected disabled value="">Choose...</option>
@@ -90,7 +90,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
       Please select a valid state.
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <label for="validationServer05" class="form-label">Zip</label>
     <input type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
     <div id="validationServer05Feedback" class="invalid-feedback">
