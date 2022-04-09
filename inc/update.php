@@ -1,5 +1,7 @@
-<?php 
+<?php
+$title="Update Records";
 include "db_conn.php";
+include_once("../inc/header.php");
 $id=$_GET['updateid'];
 
 $sql="Select * from `employees` where id=$id";
@@ -44,47 +46,74 @@ $sql = "SELECT * FROM users WHERE id='$id'";
       }
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../css/add.css">
-
-    <link rel="stylesheet"
-        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-<!--     <link rel="stylesheet" href="../css/admin.css">
- -->    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-</head>
 <body>
-<div id="overlay"></div>
-<div id="popup">
-    <div class="popupcontent">
-       
-     <form class="addemployees" method="post">
-     <h1>Update Employees</h1>
-     	<?php if (isset($_GET['error'])) { ?>
-     		<p class="error"><?php echo $_GET['error']; ?></p>
-     	<?php } ?>
-     	<label>Full Name</label>
-     	<input type="text" name="fname" autocomplete="on" placeholder="Sam Kumar" value=<?php echo $fname;?>><br>
-
-     	<label>Image</label>
-     	<input type="file" name="pic" autocomplete="on" placeholder=".png .jpg" value=<?php echo $pic;?>><br>
-
-         <label>Department/Designation</label>
-     	<input type="text" name="department" autocomplete="on" placeholder="Eg: Disciplinary Incharge" value=<?php echo $department;?>><br>
-
-         <label>Contact</label>
-     	<input type="tel" name="tel" autocomplete="on" placeholder="+977-9845000000" value=<?php echo $tel;?>><br>
-
-
-     	<button class="addbutton" name="submit" type="submit">Update</button>
-
-     </form>
-<!--      <script src="../js/script.js"></script>
- --></body>
+    <div class="center-form">
+<form class="row g-3 top-50 start-50">
+  <div class="col-md-4">
+    <label for="validationServer01" class="form-label">First name</label>
+    <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationServer02" class="form-label">Last name</label>
+    <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationServerUsername" class="form-label">Username</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend3">@</span>
+      <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+      <div id="validationServerUsernameFeedback" class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="validationServer03" class="form-label">City</label>
+    <input type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+    <div id="validationServer03Feedback" class="invalid-feedback">
+      Please provide a valid city.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationServer04" class="form-label">State</label>
+    <select class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+    <div id="validationServer04Feedback" class="invalid-feedback">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationServer05" class="form-label">Zip</label>
+    <input type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+    <div id="validationServer05Feedback" class="invalid-feedback">
+      Please provide a valid zip.
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+      <label class="form-check-label" for="invalidCheck3">
+        Agree to terms and conditions
+      </label>
+      <div id="invalidCheck3Feedback" class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+</div>
+</form>
+</form>
+</body>
 </html>
 
