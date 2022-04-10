@@ -38,10 +38,10 @@ $sql = "SELECT * FROM users WHERE id='$id'";
     }
 ?>
 <body>
-<div class="body-box" style="padding-top:150px;" >
+<div class="body-box" style="padding-top:150px;">
 <div class="container px-4">
     
-  <div class="row gx-5">
+  <div class="row row-cols-2">
     <div class="col">
     <div class="py-2 border rounded-top bg-primary">
         <div class="ps-2 text-white">Personal Details</div>
@@ -99,7 +99,6 @@ $sql = "SELECT * FROM users WHERE id='$id'";
             </div> -->
      </div>
     </div>
-
     <div class="col">
     <div class="py-2 border rounded-top bg-secondary">
         <div class="ps-2 text-white">Company Details</div>
@@ -126,42 +125,44 @@ $sql = "SELECT * FROM users WHERE id='$id'";
   <input type="number" class="form-control" id="joiningsalary">
 </div>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- <div class="col">
+      <div class="col" style="padding-top:20px;">
     <div class="py-2 border rounded-top bg-secondary">
-        <div class="ps-2 text-white">Company Details</div>
+        <div class="ps-2 text-white">Bank Account Details</div>
     </div>
       <div class="p-3 border bg-light">
       <div class="mb-2">
-  <label for="empid" class="form-label">Employee Id</label>
-  <input type="number" class="form-control" id="empid">
+  <label for="acn" class="form-label">Account Holder Name</label>
+  <input type="text" class="form-control" id="acn">
 </div>
 <div class="mb-2">
-  <label for="department" class="form-label">Department</label>
-  <input type="text" class="form-control" id="department">
+  <label for="acnum" class="form-label">Account Number</label>
+  <input type="number" class="form-control" id="acnum">
 </div>
 <div class="mb-2">
-  <label for="designation" class="form-label">Designation</label>
-  <input type="text" class="form-control" id="designation">
+  <label for="bname" class="form-label">Bank Name</label>
+  <input type="text" class="form-control" id="bname">
+</div>
+<!-- <div class="mb-2">
+  <label for="ifsc" class="form-label">IFSC Code</label>
+  <input type="number" class="form-control" id="ifsc">
+</div> -->
+<div class="mb-2">
+  <label for="pannum" class="form-label">PAN Number</label>
+  <input type="number" class="form-control" id="pannum">
 </div>
 <div class="mb-2">
-  <label for="dobjoin" class="form-label">Date Of Joining</label>
-  <input type="date" class="form-control" id="dobjoin">
-</div>
-<div class="mb-2">
-  <label for="joiningsalary" class="form-label">Joining Salary</label>
-  <input type="number" class="form-control" id="joiningsalary">
+  <label for="bbranch" class="form-label">Branch</label>
+  <input type="text" class="form-control" id="bbranch">
 </div>
       </div>
     </div>
+</div> 
+    </div>
+    
   </div>
-</div> -->
-            
-            
-        </div>
+  
+</div>
+
 
 
         <script>
