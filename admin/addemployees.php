@@ -97,10 +97,13 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                 </span>
               </div>
             </div> -->
+
+<!-- NEXT -->
+
      </div>
     </div>
     <div class="col">
-    <div class="py-2 border rounded-top bg-secondary">
+    <div class="py-2 border rounded-top bg-danger">
         <div class="ps-2 text-white">Company Details</div>
     </div>
       <div class="p-3 border bg-light">
@@ -125,8 +128,11 @@ $sql = "SELECT * FROM users WHERE id='$id'";
   <input type="number" class="form-control" id="joiningsalary">
 </div>
       </div>
+
+<!-- NEXT -->
+
       <div class="col" style="padding-top:20px;">
-    <div class="py-2 border rounded-top bg-secondary">
+    <div class="py-2 border rounded-top bg-danger">
         <div class="ps-2 text-white">Bank Account Details</div>
     </div>
       <div class="p-3 border bg-light">
@@ -159,9 +165,44 @@ $sql = "SELECT * FROM users WHERE id='$id'";
 </div> 
     </div>
     
-  </div>
-  
+
+<!-- NEXT -->
+
+<div class="col" style="padding-top:20px;">
+    <div class="py-2 border rounded-top bg-secondary">
+        <div class="ps-2 text-white">Bank Account Details</div>
+    </div>
+      <div class="p-3 border bg-light">
+      <div class="mb-2">
+      <div class="mb-2">
+      <div class="mb-2">
+      <div class="mb-2">
+      <div class="mb-2">
+  <label for="formresume" class="form-label">Resume</label>
+  <input class="form-control" type="file" id="formresume">
 </div>
+<label for="formol" class="form-label">Offer Letter</label>
+  <input class="form-control" type="file" id="formol">
+</div>
+<label for="formjl" class="form-label">Joining Letter</label>
+  <input class="form-control" type="file" id="formjl">
+</div>
+<label for="formcna" class="form-label">Contract and Agreement</label>
+  <input class="form-control" type="file" id="formcna">
+</div>
+<label for="formidp" class="form-label">ID Proof</label>
+  <input class="form-control" type="file" id="formidp">
+</div>
+    </div>
+</div> 
+
+  </div>
+
+</div>
+
+
+
+
 
 
 
