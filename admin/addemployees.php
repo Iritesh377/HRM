@@ -4,22 +4,28 @@ include "../inc/db_conn.php";
 include_once("../inc/header.php");
 
 
-if(isset($_POST['submit'])){
-    $fname=$_POST['fname'];
-    $pic=$_POST['pic'];
-    $department=$_POST['department'];
-    $tel=$_POST['tel'];
-
-    $sql="update `employees` set id='$id',fname='$fname',pic='$pic',department='$department',tel='$tel' where id=$id";
+if(isset($_POST['addemp'])){
+  $file=$_FILES['photo']['tmp_name'];
+  $size=$_FILES['photo']['size'];
+    $fullname=$_POST['fullname'];
+    $fathername=$_POST['fathername'];
+    $dob=$_POST['dob'];
+    $gender=$_POST['gender'];
+    $phone=$_POST['phone'];
+    $fulladdress=$_POST['fulladdress'];
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    if($conn){
+    $sql="INSERT INTO `employeesdetails`(`EmployeeID`, `photo`, `fullname`, `fathername`, `dob`, `gender`, `phone`, `fulladdress`, `email`, `password`) VALUES (NULL,NULL,'$fullname','$fathername','$dob','$gender','$phone','$fulladdress','$email','$password');";
     $result=mysqli_query($conn,$sql);
     if($result){
-       // echo "Data updated sucessfully";
-       header("Location: ../admin/employees.php");
+       header("Location: addemployees.php");
     }
     else{
         die(mysqli_error($conn));
     }
 }
+    }
 
 if(empty($_SESSION['id'])){
   header("Location: ../index.php");
@@ -39,6 +45,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
 ?>
 <body>
 <div class="body-box" style="padding-top:150px;">
+<form action="addemployees.php" method="POST" enctype="multipart/form-data">
 <div class="container px-4">
     
   <div class="row row-cols-2">
@@ -53,19 +60,19 @@ $sql = "SELECT * FROM users WHERE id='$id'";
      <div class="bg-light" style="height:200px;width:200px">
             <img id="frame" src="" class="img-fluid" height=200px width=200px></div></center><br>
                 
-                <input class="form-control" type="file" id="formFile" onchange="preview()">
+                <input class="form-control" name="photo" type="file" id="formFile" onchange="preview()">
             </div>
      <div class="mb-2">
   <label for="fullname" class="form-label">Full Name:</label>
-  <input type="text" class="form-control" id="fullname" placeholder="Ram Lal">
+  <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Ram Lal">
 </div>
 <div class="mb-2">
   <label for="fathername" class="form-label">Father's Name:</label>
-  <input type="text" class="form-control" id="fathername" placeholder="Shyam Lal">
+  <input type="text" name="fathername" class="form-control" id="fathername" placeholder="Shyam Lal">
 </div>
 <div class="mb-2">
   <label for="dob" class="form-label">Date Of Birth:</label>
-  <input type="date" class="form-control" id="dob">
+  <input type="date" name="dob" class="form-control" id="dob">
 </div>
 <div class="input-group mb-2 py-1">
   <label class="input-group-text" for="gender">Gender:</label>
@@ -77,15 +84,15 @@ $sql = "SELECT * FROM users WHERE id='$id'";
 </div>
 <div class="mb-2">
   <label for="phone" class="form-label">Phone:</label>
-  <input type="number" class="form-control" id="phone">
+  <input type="number" name="phone" class="form-control" id="phone">
 </div>
 <div class="mb-2">
   <label for="address" class="form-label">Full Address:</label>
-  <textarea class="form-control" id="address" rows="3"></textarea>
+  <textarea class="form-control" name="address" id="address" rows="3"></textarea>
 </div>
 <div class="mb-2">
   <label for="empemail" class="form-label">Email address:</label>
-  <input type="email" class="form-control" id="empemail" placeholder="name@example.com">
+  <input type="email" class="form-control" name="email" id="empemail" placeholder="name@example.com">
 </div>
 <div class="mb-2 pb-2">
         <label for="password" id="password" class="form-label">Password:</label>
@@ -188,6 +195,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
   <input class="form-control" type="file" id="formidp">
 </div>
     </div>
+  </form>
     <div class="col mx-5 pt-3 pb-5">
 <button type="submit" name="addemp" class="btn btn-primary">Submit</button>
   </div>

@@ -3,38 +3,6 @@ $title="Employees";
 include "../inc/db_conn.php";
 include_once("../inc/header.php");
 
-if(isset($_POST['submit'])){
-    $fname=$_POST['fname'];
-    $pic=$_POST['pic'];
-    $department=$_POST['department'];
-    $tel=$_POST['tel'];
-
-    if (empty($fname)) {
-		header("Location: employees.php?error=Full Name is required");
-	    exit();
-    }elseif (!preg_match ("/^[a-zA-z]*$/", $fname) ) { 
-            header("Location: employees.php?error=Only alphabets and whitespace are allowed.");   
-	}else if(empty($pic)){
-        header("Location: employees.php?error=Picture is required");
-	    exit();
-    }else if(empty($department)){
-        header("Location: employees.php?error=Department is required");
-	    exit();
-    }else if(empty($tel)){
-        header("Location: employees.php?error=Telephone Number is required");
-	    exit();
-    }else{
-    $sql="insert into `employees` (fname,pic,department,tel)
-    values('$fname','$pic','$department','$tel')";
-    $result=mysqli_query($conn,$sql);
-    if($result){
-        echo "Data inserted sucessfully";
-    }
-    else{
-        die(mysqli_error($conn));
-    }
-}
-}
 if(empty($_SESSION['id'])){
   header("Location: ../index.php");
   die;
@@ -60,7 +28,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                     <div>
                     <?php
 
-$sql="SELECT id FROM employeesdetails ORDER BY id";
+$sql="SELECT EmployeeID FROM employeesdetails ORDER BY EmployeeID";
 $result= mysqli_query($conn,$sql);
 $totalemp =mysqli_num_rows($result);
 
@@ -94,7 +62,13 @@ echo '<h1>'.$totaldep.'</h1>';
 
                 <div class="card-single">
                     <div>
-                        <h1>124</h1>
+                        <?php
+$sql="SELECT COUNT( DISTINCT id) FROM empcompanydetails ORDER BY id";
+$result= mysqli_query($conn,$sql);
+$totalemp =mysqli_num_rows($result);
+
+echo '<h1>'.$totalemp.'</h1>';
+?>
                         <span>Active Employees</span>
                     </div>
                     <div>
@@ -148,7 +122,7 @@ echo '<h1>'.$totaldep.'</h1>';
                                     if($result){
                 
                                         while($row=mysqli_fetch_assoc($result)){
-                                            $id=$row['id'];
+                                            $id=$row['EmployeeID'];
                                             $fname=$row['fullname'];
                                             $pic=$row['photo'];
                                             $department=$row['department'];
@@ -183,37 +157,6 @@ echo '<h1>'.$totaldep.'</h1>';
     <div id="maincontent">
  
 </div>
-<!-- <div id="overlay"></div>
-<div id="popup">
-    <div class="popupcontrols">
-        <span id="popupclose"><i class="las la-times"></i></span>
-    </div>
-    <div class="popupcontent">
-       
-<body>
-     <form class="addemployees" method="post">
-     <h1>Add Employees</h1>
-     	<?php if (isset($_GET['error'])) { ?>
-     		<p class="error"><?php echo $_GET['error']; ?></p>
-     	<?php } ?>
-     	<label>Full Name</label>
-     	<input type="text" name="fname" autocomplete="on" placeholder="Sam Kumar"><br>
-
-     	<label>Image</label>
-     	<input type="file" name="pic" autocomplete="on" placeholder=".png .jpg"><br>
-
-         <label>Department/Designation</label>
-     	<input type="text" name="department" autocomplete="on" placeholder="Eg: Disciplinary Incharge"><br>
-
-         <label>Contact</label>
-     	<input type="tel" name="tel" autocomplete="on" placeholder="+977-9845000000"><br>
-
-
-     	<button class="addbutton" name="submit" type="submit">Add</button>
-
-     </form>
-	</body> -->
-</html>
     </div>
 </div>
     <script src="../js/script.js"></script>
