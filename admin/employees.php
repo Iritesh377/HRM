@@ -60,7 +60,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                     <div>
                     <?php
 
-$sql="SELECT id FROM employees ORDER BY id";
+$sql="SELECT id FROM employeesdetails ORDER BY id";
 $result= mysqli_query($conn,$sql);
 $totalemp =mysqli_num_rows($result);
 
@@ -79,7 +79,7 @@ $totalemp =mysqli_num_rows($result);
                     <div>
                     <?php
 
-$sql="SELECT COUNT( DISTINCT department) FROM employees ORDER BY id";
+$sql="SELECT COUNT( DISTINCT department) FROM employeesdetails ORDER BY id";
 $result= mysqli_query($conn,$sql);
 $totaldep =mysqli_num_rows($result);
 

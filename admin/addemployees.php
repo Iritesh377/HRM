@@ -195,7 +195,6 @@ $sql = "SELECT * FROM users WHERE id='$id'";
 </div>
     </div>
 </div> 
-
   </div>
 
 </div>
