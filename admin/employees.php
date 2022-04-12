@@ -79,7 +79,7 @@ $totalemp =mysqli_num_rows($result);
                     <div>
                     <?php
 
-$sql="SELECT COUNT( DISTINCT department) FROM employeesdetails ORDER BY id";
+$sql="SELECT COUNT( DISTINCT department) FROM empcompanydetails ORDER BY id";
 $result= mysqli_query($conn,$sql);
 $totaldep =mysqli_num_rows($result);
 
@@ -143,16 +143,16 @@ echo '<h1>'.$totaldep.'</h1>';
 
                                     <?php
                                     
-                                    $sql="Select * from `employees`";
+                                    $sql="Select * from `employeesdetails`,`empcompanydetails`";
                                     $result= mysqli_query($conn,$sql);
                                     if($result){
                 
                                         while($row=mysqli_fetch_assoc($result)){
                                             $id=$row['id'];
-                                            $fname=$row['fname'];
-                                            $pic=$row['pic'];
+                                            $fname=$row['fullname'];
+                                            $pic=$row['photo'];
                                             $department=$row['department'];
-                                            $tel=$row['tel'];
+                                            $tel=$row['phone'];
                                             echo '<tr>
                                             <td>'.$id.'</td>
                                             <td>'.$fname.'</td>

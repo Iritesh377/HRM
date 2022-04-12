@@ -4,14 +4,14 @@ include "../inc/db_conn.php";
 include_once("../inc/header.php");
 $id=$_GET['updateid'];
 
-$sql="Select * from `employees` where id=$id";
+$sql="Select * from `employeesdetails` where id=$id";
 
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
-$fname=$row['fname'];
-$pic=$row['pic'];
+$fname=$row['fullname'];
+$pic=$row['photo'];
 $department=$row['department'];
-$tel=$row['tel'];
+$tel=$row['phone'];
 
 if(isset($_POST['submit'])){
     $fname=$_POST['fname'];
