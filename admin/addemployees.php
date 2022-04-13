@@ -15,17 +15,39 @@ if(isset($_POST['addemp'])){
     $fulladdress=$_POST['fulladdress'];
     $email=$_POST['email'];
     $password=$_POST['password'];
-    if($conn){
-    $sql="INSERT INTO `employeesdetails`(`EmployeeID`, `photo`, `fullname`, `fathername`, `dob`, `gender`, `phone`, `fulladdress`, `email`, `password`) VALUES (NULL,NULL,'$fullname','$fathername','$dob','$gender','$phone','$fulladdress','$email','$password');";
-    $result=mysqli_query($conn,$sql);
-    if($result){
-       header("Location: addemployees.php");
-    }
-    else{
-        die(mysqli_error($conn));
-    }
+    $empid=$_POST['empid'];
+    $department=$_POST['department'];
+    $designation=$_POST['designation'];
+    $doj=$_POST['doj'];
+    $joiningsalary=$_POST['joiningsalary'];
+    $accholdername=$_POST['accholdername'];
+    $accnumber=$_POST['accnumber'];
+    $bankname=$_POST['bankname'];
+    $pannumber=$_POST['pannumber'];
+    $branch=$_POST['branch'];
+    mysqli_begin_transaction($conn);
+    try{
+    $sql="INSERT INTO `employeesdetails`(`EmployeeID`, `photo`, `fullname`, `fathername`, `dob`, `gender`, `phone`, `fulladdress`, `email`, `password`) VALUES ('$empid',NULL,'$fullname','$fathername','$dob','$gender','$phone','$fulladdress','$email','$password');";
+    $sql1="INSERT INTO `empcompanydetails`(`EmployeeID`,`department`,`designation`,`doj`,`joiningsalary`) VALUES('$empid','$department','$designation','$doj','$joiningsalary');";
+    $sql2="INSERT INTO `empbankaccdetails`(`id`,`accholdername`,`accnumber`,`bankname`,`pannumber`,`branch`) VALUES($empid,'$accholdername','$accnumber','$bankname','$pannumber','$branch');";
+    // $sql3="INSERT INTO `empdoc`(``) VALUES('')";
+    $result = mysqli_query($conn,$sql);
+     $result1 = mysqli_query($conn,$sql1);
+     $result2 = mysqli_query($conn,$sql2);
+    //  $result3 = mysqli_query($conn,$sql3);
+
+     mysqli_commit($conn);
+     echo "Data Submitted";
+
+     }
+   catch (mysqli_sql_exception $exception) 
+     {
+      mysqli_rollback($conn);
+      throw $exception;
+      echo "Error";
+
+    } 
 }
-    }
 
 if(empty($_SESSION['id'])){
   header("Location: ../index.php");
@@ -110,23 +132,23 @@ $sql = "SELECT * FROM users WHERE id='$id'";
       <div class="p-3 border bg-light">
       <div class="mb-2">
   <label for="empid" class="form-label">Employee Id:</label>
-  <input type="number" class="form-control" id="empid">
+  <input type="number" name="empid" class="form-control" id="empid">
 </div>
 <div class="mb-2">
   <label for="department" class="form-label">Department:</label>
-  <input type="text" class="form-control" id="department">
+  <input type="text" name="department" class="form-control" id="department">
 </div>
 <div class="mb-2">
   <label for="designation" class="form-label">Designation:</label>
-  <input type="text" class="form-control" id="designation">
+  <input type="text" name="designation" class="form-control" id="designation">
 </div>
 <div class="mb-2">
   <label for="dobjoin" class="form-label">Date Of Joining:</label>
-  <input type="date" class="form-control" id="dobjoin">
+  <input type="date" name="doj" class="form-control" id="dobjoin">
 </div>
 <div class="mb-2 pb-3">
   <label for="joiningsalary" class="form-label">Joining Salary:</label>
-  <input type="number" class="form-control" id="joiningsalary">
+  <input type="number" name="joiningsalary" class="form-control" id="joiningsalary">
 </div>
       </div>
 
@@ -139,15 +161,15 @@ $sql = "SELECT * FROM users WHERE id='$id'";
       <div class="p-3 border bg-light">
       <div class="mb-2">
   <label for="acn" class="form-label">Account Holder Name:</label>
-  <input type="text" class="form-control" id="acn">
+  <input type="text" name="accholdername" class="form-control" id="acn">
 </div>
 <div class="mb-2">
   <label for="acnum" class="form-label">Account Number:</label>
-  <input type="number" class="form-control" id="acnum">
+  <input type="number" name="accnumber" class="form-control" id="acnum">
 </div>
 <div class="mb-2">
   <label for="bname" class="form-label">Bank Name:</label>
-  <input type="text" class="form-control" id="bname">
+  <input type="text" name="bankname" class="form-control" id="bname">
 </div>
 <!-- <div class="mb-2">
   <label for="ifsc" class="form-label">IFSC Code</label>
@@ -155,11 +177,11 @@ $sql = "SELECT * FROM users WHERE id='$id'";
 </div> -->
 <div class="mb-2">
   <label for="pannum" class="form-label">PAN Number:</label>
-  <input type="number" class="form-control" id="pannum">
+  <input type="number" name="pannumber" class="form-control" id="pannum">
 </div>
 <div class="mb-2 pb-5">
   <label for="bbranch" class="form-label">Branch:</label>
-  <input type="text" class="form-control" id="bbranch">
+  <input type="text" name="branch" class="form-control" id="bbranch">
 </div>
       </div>
     </div>

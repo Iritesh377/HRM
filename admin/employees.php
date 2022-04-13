@@ -47,7 +47,7 @@ $totalemp =mysqli_num_rows($result);
                     <div>
                     <?php
 
-$sql="SELECT COUNT( DISTINCT department) FROM empcompanydetails ORDER BY id";
+$sql="SELECT COUNT( DISTINCT department) FROM empcompanydetails ORDER BY EmployeeID";
 $result= mysqli_query($conn,$sql);
 $totaldep =mysqli_num_rows($result);
 
@@ -63,7 +63,7 @@ echo '<h1>'.$totaldep.'</h1>';
                 <div class="card-single">
                     <div>
                         <?php
-$sql="SELECT COUNT( DISTINCT id) FROM empcompanydetails ORDER BY id";
+$sql="SELECT COUNT( DISTINCT EmployeeID) FROM empcompanydetails ORDER BY EmployeeID";
 $result= mysqli_query($conn,$sql);
 $totalemp =mysqli_num_rows($result);
 
