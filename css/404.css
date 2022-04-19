@@ -25,3 +25,14 @@ body {
      margin-top: -150px;}
     
    .boom {color: #ae5151; }
+   .home{
+    line-height: 1.65em;
+    font-size: 2em;
+    font-family: 'Roboto', sans-serif;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    margin-left: -50px;
+    margin-top: 100px;}
