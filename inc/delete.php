@@ -4,7 +4,7 @@ if(isset($_GET['deleteid'])){
     $id=$_GET['deleteid'];
 
 
-    $sql="delete from `employees` where id=$id";
+    $sql="delete from `employeesdetails` where id=$id";
     $result=mysqli_query($conn,$sql);
     if($result){
        // echo"Deleted Sucessfully";

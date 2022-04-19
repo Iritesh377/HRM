@@ -28,7 +28,7 @@ $sql = "SELECT * FROM users WHERE id='$id'";
                     <div>
                     <?php
 
-$sql="SELECT EmployeeID FROM employeesdetails ORDER BY EmployeeID";
+$sql="SELECT id FROM employeesdetails ORDER BY id";
 $result= mysqli_query($conn,$sql);
 $totalemp =mysqli_num_rows($result);
 
@@ -47,7 +47,7 @@ $totalemp =mysqli_num_rows($result);
                     <div>
                     <?php
 
-$sql="SELECT COUNT( DISTINCT department) FROM empcompanydetails ORDER BY EmployeeID";
+$sql="SELECT COUNT( DISTINCT department) FROM empcompanydetails ORDER BY id";
 $result= mysqli_query($conn,$sql);
 $totaldep =mysqli_num_rows($result);
 
@@ -63,7 +63,7 @@ echo '<h1>'.$totaldep.'</h1>';
                 <div class="card-single">
                     <div>
                         <?php
-$sql="SELECT COUNT( DISTINCT EmployeeID) FROM empcompanydetails ORDER BY EmployeeID";
+$sql="SELECT COUNT( DISTINCT id) FROM empcompanydetails ORDER BY id";
 $result= mysqli_query($conn,$sql);
 $totalemp =mysqli_num_rows($result);
 
@@ -122,7 +122,7 @@ echo '<h1>'.$totalemp.'</h1>';
                                     if($result){
                 
                                         while($row=mysqli_fetch_assoc($result)){
-                                            $id=$row['EmployeeID'];
+                                            $id=$row['id'];
                                             $fname=$row['fullname'];
                                             $pic=$row['photo'];
                                             $department=$row['department'];
@@ -130,12 +130,13 @@ echo '<h1>'.$totalemp.'</h1>';
                                             echo '<tr>
                                             <td>'.$id.'</td>
                                             <td>'.$fname.'</td>
-                                            <td>'.$pic.'</td>
+                                            <td><img src="../uploads/<?php echo $pic;?>">
+                                            </td>
                                             <td>'.$department.'</td>
                                             <td>'.$tel.'</td>
                                             <td>
-                                        <button class="btn btn-primary m-2"><a href="../admin/update.php?updateid='.$id.'" class="text-light">Update</a></button>
-                                        <button class="btn btn-danger"><a href="../inc/delete.php?deleteid='.$id.'"  class="text-light">Delete</a></button> 
+                                        <a href="../admin/update.php?updateid='.$id.'" class="btn btn-primary m-2 text-light">Update</a>
+                                        <a href="../inc/delete.php?deleteid='.$id.'"  class="btn btn-danger m-2 text-light">Delete</a>
                                         </td>   
                                         </tr>';
                                         }

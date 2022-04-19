@@ -6,7 +6,37 @@ include_once("../inc/header.php");
 
 if(isset($_POST['addemp'])){
   $file=$_FILES['photo']['tmp_name'];
+  $type=mime_content_type($_FILES['photo']['tmp_name']); 
   $size=$_FILES['photo']['size'];
+  // $image=[
+  //   'photo/png',
+  //   'photo/jpeg',
+  //   'photo/gif',
+
+  // ];
+  // if($type!="photo/png"||$type!="photo/jpeg"||$type!="photo/gif"){
+  //   header("Location: addemployees.php?error=Please Upload Only Png/Jpeg/Gif File");
+	// 	        exit();
+  // }
+  $mb_size=$size/1024/1024;
+  if($mb_size>15){
+    header("Location: addemployees.php?error=Please Upload less than 5MB");
+		        exit();
+    
+  }
+  $ext=match($type){
+    "photo/png"=>".png",
+    "photo/jpeg"=>".jpeg",
+    "photo/gif"=>".gif",
+  };
+  $file_name=uniqid().$ext;
+  move_uploaded_file($file,"../uploads/$file_name");
+  $photo=$file_name;
+
+
+
+
+
     $fullname=$_POST['fullname'];
     $fathername=$_POST['fathername'];
     $dob=$_POST['dob'];
@@ -27,8 +57,8 @@ if(isset($_POST['addemp'])){
     $branch=$_POST['branch'];
     mysqli_begin_transaction($conn);
     try{
-    $sql="INSERT INTO `employeesdetails`(`EmployeeID`, `photo`, `fullname`, `fathername`, `dob`, `gender`, `phone`, `fulladdress`, `email`, `password`) VALUES ('$empid',NULL,'$fullname','$fathername','$dob','$gender','$phone','$fulladdress','$email','$password');";
-    $sql1="INSERT INTO `empcompanydetails`(`EmployeeID`,`department`,`designation`,`doj`,`joiningsalary`) VALUES('$empid','$department','$designation','$doj','$joiningsalary');";
+    $sql="INSERT INTO `employeesdetails`(`id`, `photo`, `fullname`, `fathername`, `dob`, `gender`, `phone`, `fulladdress`, `email`, `password`) VALUES ('$empid',$photo,'$fullname','$fathername','$dob','$gender','$phone','$fulladdress','$email','$password');";
+    $sql1="INSERT INTO `empcompanydetails`(`id`,`department`,`designation`,`doj`,`joiningsalary`) VALUES('$empid','$department','$designation','$doj','$joiningsalary');";
     $sql2="INSERT INTO `empbankaccdetails`(`id`,`accholdername`,`accnumber`,`bankname`,`pannumber`,`branch`) VALUES($empid,'$accholdername','$accnumber','$bankname','$pannumber','$branch');";
     // $sql3="INSERT INTO `empdoc`(``) VALUES('')";
     $result = mysqli_query($conn,$sql);
@@ -37,7 +67,8 @@ if(isset($_POST['addemp'])){
     //  $result3 = mysqli_query($conn,$sql3);
 
      mysqli_commit($conn);
-     echo "Data Submitted";
+     header("Location: addemployees.php?error=Data Added Succesfully");
+		        exit();
 
      }
    catch (mysqli_sql_exception $exception) 
@@ -77,7 +108,10 @@ $sql = "SELECT * FROM users WHERE id='$id'";
     </div>
      <div class="p-3 border bg-light">
      <div class="mb-2 py-2">
-     <label for="Image" class="form-label">Photo</label>
+     <?php if (isset($_GET['error'])) { ?>
+     		<p class="error"><?php echo $_GET['error']; ?></p>
+     	<?php } ?>
+     <label for="formFile" class="form-label">Photo</label>
      <center>
      <div class="bg-light" style="height:200px;width:200px">
             <img id="frame" src="" class="img-fluid" height=200px width=200px></div></center><br>

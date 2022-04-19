@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2022 at 10:31 PM
+-- Generation Time: Apr 19, 2022 at 08:44 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -36,6 +36,13 @@ CREATE TABLE `empbankaccdetails` (
   `branch` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `empbankaccdetails`
+--
+
+INSERT INTO `empbankaccdetails` (`id`, `accholdername`, `accnumber`, `bankname`, `pannumber`, `branch`) VALUES
+(1, 'casccaesf', 2147483647, 'ascascsc', 45454, 'cczscsfw');
+
 -- --------------------------------------------------------
 
 --
@@ -55,7 +62,7 @@ CREATE TABLE `empcompanydetails` (
 --
 
 INSERT INTO `empcompanydetails` (`id`, `department`, `designation`, `doj`, `joiningsalary`) VALUES
-(1, 'Disiplin', 'HOD', '2022-04-13', 20000);
+(1, 'cascsc', 'zczcsc', '2022-03-27', 52151);
 
 -- --------------------------------------------------------
 
@@ -79,7 +86,7 @@ CREATE TABLE `empdoc` (
 --
 
 CREATE TABLE `employeesdetails` (
-  `EmployeeID` int(255) NOT NULL,
+  `id` int(255) NOT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `fullname` varchar(255) NOT NULL,
   `fathername` varchar(255) NOT NULL,
@@ -95,10 +102,11 @@ CREATE TABLE `employeesdetails` (
 -- Dumping data for table `employeesdetails`
 --
 
-INSERT INTO `employeesdetails` (`EmployeeID`, `photo`, `fullname`, `fathername`, `dob`, `gender`, `phone`, `fulladdress`, `email`, `password`) VALUES
+INSERT INTO `employeesdetails` (`id`, `photo`, `fullname`, `fathername`, `dob`, `gender`, `phone`, `fulladdress`, `email`, `password`) VALUES
 (1, '../img/logo.png', 'Subodh Aryal', 'Hdobusa Aryal', '2022-04-04', 'Male', 984520000, 'Hello Chowk, Bharatpur-5, Chitwan, Nepal', '22@gmail.com', '123'),
 (2, NULL, 'salik sapkota', 'swacdc', '2022-04-28', '', 2147483647, '', 'techybugofficial@gmail.com', 'ascacxwdaxw'),
-(3, '', 'Ritesh sapkota', 'CWEASCAWSC', '2022-04-11', '', 2147483647, '', 'contact@gemunetwork.com', 'wefdvdfszefer');
+(3, '', 'Ritesh sapkota', 'CWEASCAWSC', '2022-04-11', '', 2147483647, '', 'contact@gemunetwork.com', 'wefdvdfszefer'),
+(4, NULL, 'Salik Ram Sapkota', 'cszcaxvcsdc', '0000-00-00', '', 2147483647, '', 'ritxgamingofficial@gmail.com', 'sdcsdcasfcsdf');
 
 -- --------------------------------------------------------
 
@@ -128,10 +136,28 @@ INSERT INTO `users` (`id`, `user_name`, `password`, `name`, `role`) VALUES
 --
 
 --
+-- Indexes for table `empbankaccdetails`
+--
+ALTER TABLE `empbankaccdetails`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `empcompanydetails`
+--
+ALTER TABLE `empcompanydetails`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `empdoc`
+--
+ALTER TABLE `empdoc`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `employeesdetails`
 --
 ALTER TABLE `employeesdetails`
-  ADD PRIMARY KEY (`EmployeeID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -144,16 +170,56 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `empbankaccdetails`
+--
+ALTER TABLE `empbankaccdetails`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `empcompanydetails`
+--
+ALTER TABLE `empcompanydetails`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `empdoc`
+--
+ALTER TABLE `empdoc`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `employeesdetails`
 --
 ALTER TABLE `employeesdetails`
-  MODIFY `EmployeeID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `empbankaccdetails`
+--
+ALTER TABLE `empbankaccdetails`
+  ADD CONSTRAINT `empbankaccdetails_ibfk_1` FOREIGN KEY (`id`) REFERENCES `employeesdetails` (`id`);
+
+--
+-- Constraints for table `empcompanydetails`
+--
+ALTER TABLE `empcompanydetails`
+  ADD CONSTRAINT `empcompanydetails_ibfk_1` FOREIGN KEY (`id`) REFERENCES `employeesdetails` (`id`);
+
+--
+-- Constraints for table `empdoc`
+--
+ALTER TABLE `empdoc`
+  ADD CONSTRAINT `empdoc_ibfk_1` FOREIGN KEY (`id`) REFERENCES `employeesdetails` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
